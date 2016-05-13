@@ -1,0 +1,23 @@
+@startuml
+package base {
+  class Hall
+  abstract class Person {
+    - void say()
+    + void hear()
+  }
+  Interface Word
+}
+
+package zundoko {
+  class SingerKiyoshi extends Person {
+    + sing()
+  }
+  class Audience extends Person
+  enum ZundokoWord implements Word
+  class LastWordsMatcher
+}
+
+Hall -> Person: hear()
+Person -> Hall: onSay()
+Audience --> LastWordsMatcher
+@enduml
